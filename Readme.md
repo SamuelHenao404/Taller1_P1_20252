@@ -66,6 +66,5 @@ moviereviewsproject/
 - **URL:** `/admin/`
 - **Funcionalidad:** Panel de administración para gestionar películas
 
-## Instalación y Configuración
 
 
