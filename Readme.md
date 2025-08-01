@@ -2,6 +2,7 @@
 
 ## Descripción
 Este proyecto es una aplicación web desarrollada en Django que permite a los usuarios visualizar y buscar películas. Fue desarrollado como parte del Taller 1 de la materia "Proyecto 1" de la Universidad EAFIT, en la carrera de Ingeniería de Sistemas.
+En el apartado de Wiki se encuentran los puntos de entrega.
 
 **Autor:** Samuel Henao Castrillón  
 **Institución:** Universidad EAFIT  
