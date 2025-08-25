@@ -1,0 +1,125 @@
+@startuml Criterios de Aceptación
+
+!define RECTANGLE class
+
+title Criterios de Aceptación - Proyecto de Reseñas de Películas
+
+package "Criterios de Aceptación" {
+  
+  package "CA-001: Visualización de Lista" {
+    RECTANGLE "CA-001.1" as CA001_1 {
+      + La página principal muestra todas las películas
+    }
+    RECTANGLE "CA-001.2" as CA001_2 {
+      + Cada película muestra título, descripción e imagen
+    }
+    RECTANGLE "CA-001.3" as CA001_3 {
+      + Las imágenes se muestran con Bootstrap
+    }
+    RECTANGLE "CA-001.4" as CA001_4 {
+      + La lista se actualiza automáticamente
+    }
+  }
+  
+  package "CA-002: Funcionalidad de Búsqueda" {
+    RECTANGLE "CA-002.1" as CA002_1 {
+      + Existe campo de búsqueda en página principal
+    }
+    RECTANGLE "CA-002.2" as CA002_2 {
+      + Búsqueda filtra por título (insensible a mayúsculas)
+    }
+    RECTANGLE "CA-002.3" as CA002_3 {
+      + Se muestra el término de búsqueda utilizado
+    }
+    RECTANGLE "CA-002.4" as CA002_4 {
+      + Si no hay resultados, muestra lista vacía
+    }
+    RECTANGLE "CA-002.5" as CA002_5 {
+      + Si no hay término, muestra todas las películas
+    }
+  }
+  
+  package "CA-003: Detalles de Película" {
+    RECTANGLE "CA-003.1" as CA003_1 {
+      + Título se muestra en formato H2
+    }
+    RECTANGLE "CA-003.2" as CA003_2 {
+      + Descripción se muestra en formato H3
+    }
+    RECTANGLE "CA-003.3" as CA003_3 {
+      + Imágenes se muestran con clase img-fluid
+    }
+    RECTANGLE "CA-003.4" as CA003_4 {
+      + Enlaces externos se muestran solo si existen
+    }
+  }
+  
+  package "CA-004: Navegación" {
+    RECTANGLE "CA-004.1" as CA004_1 {
+      + Página principal accesible desde "/"
+    }
+    RECTANGLE "CA-004.2" as CA004_2 {
+      + Página About accesible desde "/about/"
+    }
+    RECTANGLE "CA-004.3" as CA004_3 {
+      + Panel admin accesible desde "/admin/"
+    }
+  }
+  
+  package "CA-005: Interfaz de Usuario" {
+    RECTANGLE "CA-005.1" as CA005_1 {
+      + Utiliza Bootstrap 5.3.7
+    }
+    RECTANGLE "CA-005.2" as CA005_2 {
+      + Formularios con estilos apropiados
+    }
+    RECTANGLE "CA-005.3" as CA005_3 {
+      + Interfaz responsiva
+    }
+  }
+  
+  package "CA-006: Administración" {
+    RECTANGLE "CA-006.1" as CA006_1 {
+      + Modelo Movie registrado en admin
+    }
+    RECTANGLE "CA-006.2" as CA006_2 {
+      + Administradores pueden CRUD películas
+    }
+    RECTANGLE "CA-006.3" as CA006_3 {
+      + Campos title, description, image, url editables
+    }
+    RECTANGLE "CA-006.4" as CA006_4 {
+      + Imágenes se suben correctamente
+    }
+  }
+  
+  package "CA-007: Rendimiento" {
+    RECTANGLE "CA-007.1" as CA007_1 {
+      + Página carga en menos de 3 segundos
+    }
+    RECTANGLE "CA-007.2" as CA007_2 {
+      + Imágenes se optimizan automáticamente
+    }
+    RECTANGLE "CA-007.3" as CA007_3 {
+      + Búsqueda funciona eficientemente
+    }
+  }
+}
+
+package "Estados" {
+  note right of CA001_1 : Estado: IMPLEMENTADO
+  note right of CA002_1 : Estado: IMPLEMENTADO
+  note right of CA003_1 : Estado: IMPLEMENTADO
+  note right of CA004_1 : Estado: IMPLEMENTADO
+  note right of CA005_1 : Estado: IMPLEMENTADO
+  note right of CA006_1 : Estado: IMPLEMENTADO
+  note right of CA007_1 : Estado: IMPLEMENTADO
+}
+
+CA001_1 --> CA001_2 : Depende de
+CA001_2 --> CA001_3 : Depende de
+CA002_1 --> CA002_2 : Depende de
+CA003_1 --> CA003_2 : Depende de
+CA003_2 --> CA003_3 : Depende de
+
+@enduml 

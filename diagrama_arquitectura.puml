@@ -1,0 +1,82 @@
+@startuml Arquitectura del Sistema
+
+!define RECTANGLE class
+
+title Arquitectura del Sistema - Proyecto de Reseñas de Películas
+
+package "Frontend" {
+  RECTANGLE "home.html" as HOME {
+    + Formulario de búsqueda
+    + Lista de películas
+    + Bootstrap 5.3.7
+  }
+  
+  RECTANGLE "about.html" as ABOUT {
+    + Información del proyecto
+  }
+}
+
+package "Backend (Django)" {
+  RECTANGLE "views.py" as VIEWS {
+    + home(request)
+    + about(request)
+    + Lógica de búsqueda
+  }
+  
+  RECTANGLE "models.py" as MODELS {
+    + class Movie
+    + title, description
+    + image, url
+  }
+  
+  RECTANGLE "admin.py" as ADMIN {
+    + admin.site.register(Movie)
+    + Panel de administración
+  }
+}
+
+package "Base de Datos" {
+  RECTANGLE "SQLite" as DB {
+    + Tabla Movie
+    + Almacenamiento de datos
+  }
+}
+
+package "Configuración" {
+  RECTANGLE "urls.py" as URLS {
+    + path('', home)
+    + path('about/', about)
+    + path('admin/', admin)
+  }
+  
+  RECTANGLE "settings.py" as SETTINGS {
+    + Configuración Django
+    + MEDIA_URL, MEDIA_ROOT
+    + Installed Apps
+  }
+}
+
+package "Archivos Estáticos" {
+  RECTANGLE "movie/images/" as IMAGES {
+    + Imágenes de películas
+    + Upload automático
+  }
+}
+
+HOME --> VIEWS : HTTP Request
+ABOUT --> VIEWS : HTTP Request
+VIEWS --> MODELS : Query
+MODELS --> DB : ORM
+ADMIN --> MODELS : CRUD
+URLS --> VIEWS : Routing
+SETTINGS --> VIEWS : Config
+VIEWS --> HOME : Render Template
+VIEWS --> ABOUT : Render Template
+MODELS --> IMAGES : ImageField
+
+note right of VIEWS : Lógica de negocio
+note right of MODELS : Modelo de datos
+note right of DB : Persistencia
+note right of IMAGES : Almacenamiento de archivos
+
+@enduml 

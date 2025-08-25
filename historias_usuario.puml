@@ -1,0 +1,59 @@
+@startuml Historias de Usuario
+
+!define RECTANGLE class
+
+title Historias de Usuario - Proyecto de Reseñas de Películas
+
+package "Historias de Usuario" {
+  
+  RECTANGLE "HU-001" as HU001 {
+    + Como: Usuario visitante
+    + Quiero: Ver lista de películas
+    + Para: Explorar el catálogo
+  }
+  
+  RECTANGLE "HU-002" as HU002 {
+    + Como: Usuario visitante
+    + Quiero: Buscar películas por título
+    + Para: Encontrar películas específicas
+  }
+  
+  RECTANGLE "HU-003" as HU003 {
+    + Como: Usuario visitante
+    + Quiero: Ver detalles de película
+    + Para: Obtener información completa
+  }
+  
+  RECTANGLE "HU-004" as HU004 {
+    + Como: Usuario visitante
+    + Quiero: Acceder a enlaces externos
+    + Para: Obtener más información
+  }
+  
+  RECTANGLE "HU-005" as HU005 {
+    + Como: Usuario visitante
+    + Quiero: Navegar a página About
+    + Para: Información del proyecto
+  }
+  
+  RECTANGLE "HU-006" as HU006 {
+    + Como: Administrador
+    + Quiero: Gestionar películas
+    + Para: Mantener el catálogo
+  }
+}
+
+package "Prioridades" {
+  note right of HU001 : Prioridad: ALTA
+  note right of HU002 : Prioridad: ALTA
+  note right of HU003 : Prioridad: MEDIA
+  note right of HU004 : Prioridad: BAJA
+  note right of HU005 : Prioridad: BAJA
+  note right of HU006 : Prioridad: ALTA
+}
+
+HU001 --> HU003 : Incluye
+HU002 --> HU003 : Incluye
+HU003 --> HU004 : Opcional
+
+@enduml 
