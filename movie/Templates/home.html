@@ -18,14 +18,27 @@
         <p>Searching for {{searchTerm}}</p>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for movie in movies %}
-            <div v-for="movie in movies" class="col">
-                <div class="card">
-                <img src="{{movie.image.url}}" class="card-img-top" alt="...">
+            <div class="col">
+                <div class="card h-100">
+                <img src="{{movie.image.url}}" class="card-img-top" alt="{{movie.title}}" style="height: 300px; object-fit: cover;">
                 <div class="card-body">
-                  <h5 class="card-title fw-bold"> {{movie.title}} </h5>
+                  <h5 class="card-title fw-bold">{{movie.title}}</h5>
+                  
+                  <!-- Información del género y año -->
+                  <div class="mb-2">
+                    {% if movie.genre %}
+                      <span class="badge bg-primary me-2">{{movie.genre}}</span>
+                    {% endif %}
+                    {% if movie.year %}
+                      <span class="badge bg-secondary">{{movie.year}}</span>
+                    {% endif %}
+                  </div>
+                  
                   <p class="card-text">{{movie.description}}</p>
-                  {%if movie.url %}
-                    <a href="{{movie.url}}" class="btn btn-primary">Movie Link</a>
+                  
+                  <!-- Enlace a la película si existe -->
+                  {% if movie.url %}
+                    <a href="{{movie.url}}" class="btn btn-primary" target="_blank">Movie Link</a>
                   {% endif %}
                 </div>
               </div>
